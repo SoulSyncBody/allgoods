@@ -1,0 +1,10 @@
+# 忽略 Python 環境
+venv/
+__pycache__/
+
+# 忽略資料庫和敏感檔案
+trustswap.db
+.env
+
+# 忽略 IDE 相關檔案
+.vscode/

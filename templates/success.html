@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>後台監控</title>
+    <style>
+        body { font-family: sans-serif; padding: 40px; background-color: #f5f5f7; }
+        table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f0f0f0; }
+        .std { color: #0071e3; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>All-Goods 實時數據監控</h2>
+    <p>以下數據已自動標準化 (去除了空格和贅詞)：</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>LINE</th>
+            <th>原始輸入 (有)</th>
+            <th>自動標準化 (KEY)</th>
+            <th>原始輸入 (求)</th>
+            <th>自動標準化 (KEY)</th>
+        </tr>
+        {% for t in transactions %}
+        <tr>
+            <td>{{ t.id }}</td>
+            <td>{{ t.line_id }}</td>
+            <td>{{ t.have_item_raw }}</td>
+            <td class="std">{{ t.have_item_std }}</td>
+            <td>{{ t.want_item_raw }}</td>
+            <td class="std">{{ t.want_item_std }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">返回許願頁</a>
+</body>
+</html>
