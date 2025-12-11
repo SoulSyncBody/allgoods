@@ -13,10 +13,8 @@ load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///trustswap.db") 
 # 如果沒有設定 DATABASE_URL，則退回使用 SQLite（用於本地開發和測試）
 
-engine = create_engine(
-    DATABASE_URL,
-    convert_unicode=True
-)
+engine = create_engine(DATABASE_URL)
+
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
